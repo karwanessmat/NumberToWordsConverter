@@ -1,7 +1,7 @@
 # Convert Number to Kurdish Text
 converting any number type for tex.
 
-    var numberInKurdishText = 101221.ToKurdishText
+    var numberInKurdishText = 101221.ToKurdishText();
 
 the result is 
 
