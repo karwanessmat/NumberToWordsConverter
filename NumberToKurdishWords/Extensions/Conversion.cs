@@ -2,15 +2,21 @@
 {
  public static  class Conversion
     {
-        public static string NumberToKurdishText(this long number)
+        public static string ToKurdishText(this object val)
         {
+
+            var isNumber = long.TryParse(val.ToString(), out var  number);
+            if (!isNumber)
+            {
+                return "ته‌نها پشتگیری ژماره‌ ده‌كات.";
+            }
             var realNumber = number;
             switch (number)
             {
                 case 0:
                     return "سفر";
                 case < 0:
-                    return " - " + NumberToKurdishText(Math.Abs(number));
+                    return " - " + ToKurdishText(Math.Abs(number));
             }
 
             var words = " ";
@@ -22,19 +28,19 @@
 
             if ((number / 1000000000000 > 0))
             {
-                words += NumberToKurdishText(number / 1000000000000) + " تریلیۆن و ";
+                words += ToKurdishText(number / 1000000000000) + " تریلیۆن و ";
                 number %= 1000000000000;
             }
 
             if ((number / 1000000000 > 0))
             {
-                words += NumberToKurdishText(number / 1000000000) + " ملیار و ";
+                words += ToKurdishText(number / 1000000000) + " ملیار و ";
                 number %= 1000000000;
             }
 
             if ((number / 1000000) > 0)
             {
-                words += NumberToKurdishText(number / 1000000) + " ملیۆن و ";
+                words += ToKurdishText(number / 1000000) + " ملیۆن و ";
                 number %= 1000000;
             }
             var getNumber = number % 1000;
@@ -44,13 +50,13 @@
                 if (realNumber % 1000 != 0)
                 {
 
-                    words += NumberToKurdishText(number / 1000) + " هه‌زار و ";
+                    words += ToKurdishText(number / 1000) + " هه‌زار و ";
 
 
                 }
                 else
                 {
-                    words += NumberToKurdishText(number / 1000) + " هه‌زار  ";
+                    words += ToKurdishText(number / 1000) + " هه‌زار  ";
 
                 }
                 number %= 1000;
@@ -59,7 +65,7 @@
 
             if ((number / 100) > 0)
             {
-                words += NumberToKurdishText(number / 100) + " سه‌د ";
+                words += ToKurdishText(number / 100) + " سه‌د ";
                 number %= 100;
             }
 
