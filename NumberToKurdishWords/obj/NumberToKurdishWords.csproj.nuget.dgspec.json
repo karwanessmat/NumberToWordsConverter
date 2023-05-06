@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\karwa\\Source\\Repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj": {}
+    "C:\\Users\\karwa\\source\\repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj": {}
   },
   "projects": {
-    "C:\\Users\\karwa\\Source\\Repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj": {
+    "C:\\Users\\karwa\\source\\repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\karwa\\Source\\Repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj",
+        "projectUniqueName": "C:\\Users\\karwa\\source\\repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj",
         "projectName": "NumberToKurdishWords",
-        "projectPath": "C:\\Users\\karwa\\Source\\Repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj",
+        "projectPath": "C:\\Users\\karwa\\source\\repos\\NumberToKurdishWords\\NumberToKurdishWords\\NumberToKurdishWords.csproj",
         "packagesPath": "C:\\Users\\karwa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\karwa\\Source\\Repos\\NumberToKurdishWords\\NumberToKurdishWords\\obj\\",
+        "outputPath": "C:\\Users\\karwa\\source\\repos\\NumberToKurdishWords\\NumberToKurdishWords\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\DevExpress 21.2\\Components\\Offline Packages",

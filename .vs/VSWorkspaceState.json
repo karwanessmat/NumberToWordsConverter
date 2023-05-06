@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\NumberToKurdishWords",
+    "\\NumberToKurdishWords\\Extensions"
   ],
-  "SelectedNode": "\\C:\\Users\\karwa\\Source\\Repos\\NumberToKurdishWords",
+  "SelectedNode": "\\NumberToKurdishWords",
   "PreviewInSolutionExplorer": false
 }
