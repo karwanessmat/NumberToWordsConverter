@@ -1,4 +1,6 @@
-﻿namespace NumberToKurdishWords.Extensions
+﻿using System.Text.RegularExpressions;
+
+namespace NumberToKurdishWords.Extensions
 {
  public static  class Conversion
     {
@@ -47,19 +49,9 @@
 
             if ((number / 1000) > 0)
             {
-                if (realNumber % 1000 != 0)
-                {
-
-                    words += ToKurdishText(number / 1000) + " هه‌زار و ";
-
-
-                }
-                else
-                {
                     words += ToKurdishText(number / 1000) + " هه‌زار  ";
 
-                }
-                number %= 1000;
+                    number %= 1000;
             }
 
 
@@ -91,9 +83,6 @@
 
 
             words = words.Replace("یه‌ك سه‌د", "سه‌د");
-
-            words = words.Replace("یه‌ك هه‌زار و", "هه‌زار");
-
 
             words = words.Replace("یه‌ك ملیۆن", "ملیۆنێك");
             words = words.Replace("سه‌د و ملیۆنێك", "سه‌د و یه‌ك ملیۆن");

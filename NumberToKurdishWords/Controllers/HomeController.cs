@@ -13,8 +13,8 @@ namespace NumberToKurdishWords.Controllers
         /// </summary>
         /// <param name="number">you can use any type of number</param>
         /// <returns></returns>
-        [HttpGet("{number:int}")]
-        public IActionResult Index(int number)
+        [HttpGet("{number:long}")]
+        public IActionResult Index(long number)
         {
 
             var textNumber = number.ToKurdishText();
