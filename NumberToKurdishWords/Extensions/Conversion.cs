@@ -85,6 +85,10 @@
 
 
             words = words.Replace("یه‌ك سه‌د", "سه‌د");
+
+            words = words.Replace("یه‌ك هه‌زار و", "هه‌زار");
+
+
             words = words.Replace("یه‌ك ملیۆن", "ملیۆنێك");
             words = words.Replace("سه‌د و ملیۆنێك", "سه‌د و یه‌ك ملیۆن");
 
@@ -100,4 +104,5 @@
         }
 
     }
+
 }
