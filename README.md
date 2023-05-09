@@ -6,5 +6,5 @@ converting any number type for tex.
 the result is 
 
 ```
- سه‌د و یه‌ك هه‌زار  دوو سه‌د و بیست و یه‌ك
+ سەد و یەک هەزار  دوو سەد و بیست و یەک
 ```
