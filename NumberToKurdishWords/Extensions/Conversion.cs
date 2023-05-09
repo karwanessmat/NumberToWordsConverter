@@ -1,18 +1,26 @@
 ﻿using System.Text.RegularExpressions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace NumberToKurdishWords.Extensions
 {
  public static  class Conversion
     {
+        private static bool _isNumberOnBillion;
+        private static bool _isNumberOnTrillion;
+
+
+
         public static string ToKurdishText(this object val)
         {
+           
 
             var isNumber = long.TryParse(val.ToString(), out var  number);
+
             if (!isNumber)
             {
-                return "ته‌نها پشتگیری ژماره‌ ده‌كات.";
+                return "تەنها پشتگیری ژمارە دەکات.";
             }
-            var realNumber = number;
+
             switch (number)
             {
                 case 0:
@@ -22,52 +30,68 @@ namespace NumberToKurdishWords.Extensions
             }
 
             var words = " ";
-            if (realNumber> 999999999999999)
+            var isNumberBiggerThanTrillion = number > 999999999999999;
+            if (isNumberBiggerThanTrillion)
             {
-                return "پشتگیری ژماره‌ بەرزتر لە تریلیۆن ناكات"; // doesn't support numbers above one trillion
+                return "پشتگیری ژمارەی بەرزتر لە تریلیۆن ناکات."; // doesn't support numbers above one trillion
             }
 
 
             if ((number / 1000000000000 > 0))
             {
-                words += ToKurdishText(number / 1000000000000) + " تریلیۆن و ";
+                words += ToKurdishText(number / 1000000000000) + " تریلیۆن و";
                 number %= 1000000000000;
+                _isNumberOnTrillion = true;
             }
 
             if ((number / 1000000000 > 0))
             {
-                words += ToKurdishText(number / 1000000000) + " ملیار و ";
+                words += ToKurdishText(number / 1000000000) + " ملیار و";
                 number %= 1000000000;
+                _isNumberOnBillion = true;
+
             }
 
             if ((number / 1000000) > 0)
             {
-                words += ToKurdishText(number / 1000000) + " ملیۆن و ";
+                words += ToKurdishText(number / 1000000) + " ملیۆن و";
                 number %= 1000000;
             }
-            var getNumber = number % 1000;
 
             if ((number / 1000) > 0)
             {
-                    words += ToKurdishText(number / 1000) + " هه‌زار  ";
+                if (number % 1000 != 0)
+                {
 
-                    number %= 1000;
+                    words += ToKurdishText(number / 1000) + " هەزار و";
+
+
+                }
+                else
+                {
+                    words += ToKurdishText(number / 1000) + " هەزار ";
+
+                }
+
+                number %= 1000;
             }
 
 
             if ((number / 100) > 0)
             {
-                words += ToKurdishText(number / 100) + " سه‌د ";
+                words += ToKurdishText(number / 100) + " سەد ";
                 number %= 100;
             }
 
             if (number > 0)
             {
                 if (words != " ")
-                    words += " و ";
+                {
+                      words += " و ";
+                }
 
-                var unitsMap = new[] { "سفر", "یه‌ك", "دوو", "سێ", "چوار", "پێنج", "شه‌ش", "حه‌وت", "هه‌شت", "نۆ", "ده‌", "یازده‌", "دوازده‌", "سێزده‌", "چوارده‌", "پازده‌", "شازده‌", "حه‌ڤده‌", "هه‌ژده‌", "نۆزده‌" };
-                var tensMap = new[] { "سفر", "ده‌", "بیست", "سی", "چل", "په‌نجا", "شه‌ست", "حه‌فتا", "هه‌شتا", "نۆوه‌ت" };
+                var unitsMap = new[] { "سفر", "یەک", "دوو", "سێ", "چوار", "پێنج", "شەش", "حەوت", "هەشت", "نۆ", "دە‌", "یازدە‌", "دوازدە‌", "سێزدە‌", "چواردە‌", "پازدە‌", "شازدە‌", "حەڤدە‌", "هەژدە‌", "نۆزدە‌" };
+                var tensMap = new[] { "سفر", "دە‌", "بیست", "سی", "چل", "پەنجا", "شەست", "حەفتا", "هەشتا", "نۆوەت" };
 
                 if (number < 20)
                     words += unitsMap[number];
@@ -82,20 +106,33 @@ namespace NumberToKurdishWords.Extensions
             }
 
 
-            words = words.Replace("یه‌ك سه‌د", "سه‌د");
+            words = words.Replace("یەک سەد", "سەد");
 
-            words = words.Replace("یه‌ك ملیۆن", "ملیۆنێك");
-            words = words.Replace("سه‌د و ملیۆنێك", "سه‌د و یه‌ك ملیۆن");
+            words = words.Replace("یەک ملیۆن", "ملیۆنێک");
+            words = words.Replace("سەد و ملیۆنێک", "سەد و یەک ملیۆن");
 
 
-            words = words.Replace("یه‌ك ملیار", "ملیارێك");
-            words = words.Replace("سه‌د و ملیارێك", "سه‌د و یه‌ك ملیار");
+            words = words.Replace("یەک ملیار", "ملیارێک");
+            words = words.Replace("سەد و ملیارێک", "سەد و یەک ملیار");
 
-            words = words.Replace("یه‌ك تریلیۆن", "تریلیۆنێك");
-            words = words.Replace("سه‌د و تریلیۆنێك", "سه‌د و یه‌ك تریلیۆن");
+            words = words.Replace("یەک تریلیۆن", "تریلیۆنێک");
+            words = words.Replace("سەد و تریلیۆنێک", "سەد و یەک تریلیۆن");
             words = words.Replace("  ", " ");
-            return words;
+            if (!_isNumberOnBillion) return words;
 
+            words = words.Replace("سەد ملیۆن", "سەد و یەک ملیۆن");
+            words = words.Replace("و ملیۆنێک", "و یەک ملیۆن");
+            words = words.Replace("و ملیارێک", "و یەک ملیار");
+
+            if (_isNumberOnTrillion)
+            {
+                words = words.Replace("سەد ملیار", "سەد و یەک ملیار");
+                words = words.Replace("و تریلیۆنێک", "و یەک تریلیۆن");
+
+            }
+            
+
+            return words;
         }
 
     }
