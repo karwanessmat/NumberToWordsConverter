@@ -147,7 +147,6 @@
 
                 return strNumber.Split('.')[0].ToCharArray().Length switch
                 {
-                    // جنيها و قرشا بالنسبة للعملة المصرى
                     1 => convertOneDigits(strNumber) + " و " + ConvertTwoDigits(strNumber.Split('.')[1]),
                     2 => ConvertTwoDigits(strNumber) + " و " + ConvertTwoDigits(strNumber.Split('.')[1]),
                     3 => ConvertThreeDigits(strNumber) + " و " + ConvertTwoDigits(strNumber.Split('.')[1]),
