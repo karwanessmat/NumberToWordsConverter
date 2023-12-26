@@ -12,19 +12,19 @@ namespace NumberToKurdishWords.Controllers
         /// </summary>
         /// <param name="number">you can use any type of number</param>
         /// <returns></returns>
-        [HttpGet(template: "{number:long}")]
+        [HttpGet( "kurdish/{number:long}")]
         public IActionResult WordsToKurdish(long number)
         {
 
-            var textNumber = number.WordsInKurdish();
+            var textNumber = number.NumberWordsInKurdish();
             return Ok(textNumber);
         }
 
 
-        [HttpGet(template: "{number:long}")]
+        [HttpGet( "arabic/{number:long}")]
         public IActionResult WordsToArabic(long number)
         {
-            var textNumber = number.WordsInArabic();
+            var textNumber = number.NumberWordsInArabic();
             return Ok(textNumber);
         }
     }
