@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="NumSpeaks NuGet Package\**" />
+    <Content Remove="NumSpeaks NuGet Package\**" />
+    <EmbeddedResource Remove="NumSpeaks NuGet Package\**" />
+    <None Remove="NumSpeaks NuGet Package\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="logo.ico" />
   </ItemGroup>
 
