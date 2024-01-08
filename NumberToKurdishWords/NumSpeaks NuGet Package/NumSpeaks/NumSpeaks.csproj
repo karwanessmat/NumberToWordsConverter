@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Convert number to words</Title>
+    <Description>NumSpeaks - Convert Kurdish and Arabic Numbers to Words</Description>
+    <PackageIcon>111.png</PackageIcon>
+    <PackageReadmeFile>NumSpeaks.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/karwanessmat/NumberToKurdishWords</RepositoryUrl>
+    <PackageTags>c#,.net</PackageTags>
+    <PackageReleaseNotes>Initial release of NumSpeaks.
+Convert Kurdish and Arabic numbers to words effortlessly.</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/karwanessmat/NumberToKurdishWords</PackageProjectUrl>
+    <Copyright>Owner</Copyright>
+    <PackageLicenseFile>License.txt</PackageLicenseFile>
+    <AssemblyVersion>1.0.1</AssemblyVersion>
+    <FileVersion>1.0.1</FileVersion>
+    <Version>1.0.1</Version>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\111.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\NumSpeaks.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\..\License.txt">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
