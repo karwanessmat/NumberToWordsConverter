@@ -27,5 +27,12 @@ namespace NumberToKurdishWords.Controllers
             var textNumber = number.NumberWordsInArabic();
             return Ok(textNumber);
         }
+
+        [HttpGet("english/{number:long}")]
+        public IActionResult WordsToEnglish(long number)
+        {
+            var textNumber = number.NumberWordsInEnglish();
+            return Ok(textNumber);
+        }
     }
 }
