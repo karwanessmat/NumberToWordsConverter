@@ -20,7 +20,14 @@ var numberInKurdishText = 991_887_766_551.NumberWordsInKurdish();
 // Convert a number to Arabic words
 var numberInArabicText = 991_887_766_551.NumberWordsInArabic();
 // RESULT: تسعة مائة و واحد و تسعون مليار و ثمانية مائة و سبعة و ثمانون مليون و سبعة مائة و ستة و ستون ألف و خمسة مائة و واحد و خمسون
+
+
+// Convert a number to English words
+var numberInArabicText = 123_456_789_012.NumberWordsInEnglish();
+// RESULT: one hundred twenty-three billion four hundred fifty-six million seven hundred eighty-nine thousand twelve
 ```
+
+
 
 
 🌐 **Future Updates:**
