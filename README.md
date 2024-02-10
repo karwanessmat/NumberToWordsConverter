@@ -2,10 +2,10 @@
 # ⭐ Number to Words Converter ⭐
 
 📚 **Description:**
-It is used to convert Kurdish and Arabic numerals into words. It's a valuable tool for developers, and anyone working with numbers in these scripts. Stay tuned for future updates with support for additional languages.
+It is used to convert Kurdish, Arabic, and English numerals into words. It's a valuable tool for developers, and anyone working with numbers in these scripts. Stay tuned for future updates with support for additional languages.
 
 🚀 **Features:**
-- Easy conversion of Kurdish and Arabic numbers into words.
+- Easy conversion of Kurdish, Arabic, and English numbers into words.
 - Quick and precise results for all numerical inputs.
 - Enhance documents, financial statements, and more with written numbers.
 
@@ -20,11 +20,6 @@ var numberInKurdishText = 991_887_766_551.NumberWordsInKurdish();
 // Convert a number to Arabic words
 var numberInArabicText = 991_887_766_551.NumberWordsInArabic();
 // RESULT: تسعة مائة و واحد و تسعون مليار و ثمانية مائة و سبعة و ثمانون مليون و سبعة مائة و ستة و ستون ألف و خمسة مائة و واحد و خمسون
-
-
-// Convert a number to English words
-var numberInArabicText = 123_456_789_012.NumberWordsInEnglish();
-// RESULT: one hundred twenty-three billion four hundred fifty-six million seven hundred eighty-nine thousand twelve
 ```
 
 
