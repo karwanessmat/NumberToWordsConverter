@@ -1,71 +1,78 @@
-﻿namespace NumberToKurdishWords.Extensions;
-
-
-
-public static class ConvertNumbersToEnglishAlphabet
+﻿
+namespace NumberToWordsConverter.Extensions
 {
-    private static readonly string[] Units = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-    private static readonly string[] Teens = { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
-    private static readonly string[] Tens = { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
-    private static readonly string[] Thousands = { "", "thousand", "million", "billion" };
-
-    public static string NumberWordsInEnglish(this object val)
+    public static class ConvertNumbersToEnglishAlphabet
     {
-        var isNumber = long.TryParse(val.ToString(), out var number);
+        private static readonly string[] Units = { "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+        private static readonly string[] Teens = { "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen" };
+        private static readonly string[] Tens = { "zero", "ten", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety" };
+        // Updated to include "trillion" and beyond
+        private static readonly string[] Thousands = { "", "thousand", "million", "billion", "trillion", "quadrillion", "quintillion" };
 
-        if (!isNumber)
+        public static string NumberWordsInEnglish(this object val)
         {
-            return "Just support number";
-        }
+            var isNumber = long.TryParse(val.ToString(), out var number);
 
-        if (number == 0)
-            return "zero";
-
-        if (number < 0)
-            return "- " + NumberWordsInEnglish(Math.Abs(number));
-
-        var words = "";
-
-        int thousandCounter = 0;
-
-        while (number > 0)
-        {
-            if (number % 1000 != 0)
+            if (!isNumber)
             {
-                var prefix = ConvertLessThanOneThousand(number % 1000) + " " + Thousands[thousandCounter];
-                words = prefix.Trim() + (string.IsNullOrEmpty(words) ? "" : " " + words);
+                return "Just support number";
             }
 
-            number /= 1000;
-            thousandCounter++;
+            if (number == 0)
+                return "zero";
+
+            if (number < 0)
+                return "- " + NumberWordsInEnglish(Math.Abs(number));
+
+            var words = "";
+
+            int thousandCounter = 0;
+
+            while (number > 0)
+            {
+                if (number % 1000 != 0)
+                {
+                    var prefix = ConvertLessThanOneThousand(number % 1000) + " " + Thousands[thousandCounter];
+                    words = prefix.Trim() + (string.IsNullOrEmpty(words) ? "" : " " + words);
+                }
+
+                number /= 1000;
+                thousandCounter++;
+            }
+
+            return words.Trim();
         }
 
-        return words.Trim();
-    }
-
-    private static string ConvertLessThanOneThousand(long number)
-    {
-        string words = "";
-
-        if (number % 100 < 20)
+        private static string ConvertLessThanOneThousand(long number)
         {
-            words = number % 100 < 10 ? Units[number % 10] : Teens[number % 100 - 10];
-            number /= 100;
-        }
-        else
-        {
-            words = Units[number % 10];
-            number /= 10;
+            string words = "";
 
-            words = (number % 10 > 0 ? Tens[number % 10] + (words != "zero" ? "-" : "") : "") + words;
-            number /= 10;
-        }
+            if (number % 100 < 20)
+            {
+                words = number % 100 < 10 ? Units[number % 10] : Teens[number % 100 - 10];
+                number /= 100;
+            }
+            else
+            {
+                if (number % 10 != 0)
+                {
+                    words = Units[number % 10];
+                }
+                number /= 10;
 
-        if (number > 0)
-        {
-            words = Units[number] + " hundred" + (string.IsNullOrEmpty(words) ? "" : " " + words);
-        }
+                if (number % 10 > 0)
+                {
+                    words = (words != "" ? Tens[number % 10] + "-" : Tens[number % 10]) + words;
+                }
+                number /= 10;
+            }
 
-        return words;
+            if (number > 0)
+            {
+                words = Units[number] + " hundred" + (string.IsNullOrEmpty(words) ? "" : " " + words);
+            }
+
+            return words;
+        }
     }
 }
