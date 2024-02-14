@@ -5,7 +5,7 @@
         public static string NumberWordsInArabic(this object val)
         {
 
-            var isNumber = long.TryParse(((long)val).ToString(), out var number);
+            var isNumber = long.TryParse((Convert.ToInt64(val)).ToString(), out var number);
 
             if (!isNumber)
             {

@@ -15,7 +15,8 @@ namespace NumberToWordsConverter.Controllers
         [HttpGet( "kurdish/{number:long}")]
         public IActionResult WordsToKurdish(long number)
         {
-            var value = 0.00m;
+            var value = 232.620m;
+            var textvalueNumber = value.NumberWordsInKurdish();
             var textNumber = number.NumberWordsInKurdish();
             return Ok(textNumber);
         }
