@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace NumberToKurdishWords.Extensions
+﻿namespace NumberToWordsConverter.Extensions
 {
     public static class StringExtensions
     {

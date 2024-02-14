@@ -1,4 +1,4 @@
-namespace NumberToKurdishWords;
+namespace NumberToWordsConverter;
 
 public class Program
 {

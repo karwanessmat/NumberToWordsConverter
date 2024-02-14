@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NumberToKurdishWords.Extensions;
 using NumberToWordsConverter.Extensions;
 
-namespace NumberToKurdishWords.Controllers
+namespace NumberToWordsConverter.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,7 +15,7 @@ namespace NumberToKurdishWords.Controllers
         [HttpGet( "kurdish/{number:long}")]
         public IActionResult WordsToKurdish(long number)
         {
-
+            var value = 0.00m;
             var textNumber = number.NumberWordsInKurdish();
             return Ok(textNumber);
         }

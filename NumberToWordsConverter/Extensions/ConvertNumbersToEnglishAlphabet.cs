@@ -11,7 +11,7 @@ namespace NumberToWordsConverter.Extensions
 
         public static string NumberWordsInEnglish(this object val)
         {
-            var isNumber = long.TryParse(val.ToString(), out var number);
+            var isNumber = long.TryParse(((long)val).ToString(), out var number);
 
             if (!isNumber)
             {

@@ -1,12 +1,12 @@
 ﻿using System.Text;
 
-namespace NumberToKurdishWords.Extensions;
+namespace NumberToWordsConverter.Extensions;
 
 public static class ConvertNumbersToKurdishAlphabet
 {
     public static string NumberWordsInKurdish(this object val)
     {
-        var isNumber = long.TryParse(val.ToString(), out var number);
+        var isNumber = long.TryParse(((long)val).ToString(), out var number);
 
         if (!isNumber)
         {

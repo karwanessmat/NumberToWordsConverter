@@ -1,11 +1,11 @@
-﻿namespace NumberToKurdishWords.Extensions
+﻿namespace NumberToWordsConverter.Extensions
 {
     public static class ConvertNumbersToArabicAlphabet
     {
         public static string NumberWordsInArabic(this object val)
         {
 
-            var isNumber = long.TryParse(val.ToString(), out var number);
+            var isNumber = long.TryParse(((long)val).ToString(), out var number);
 
             if (!isNumber)
             {
